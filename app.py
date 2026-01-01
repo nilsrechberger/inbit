@@ -2,12 +2,12 @@ import streamlit as st
 import defusedxml.ElementTree as ET
 import io
 
-from editor import Editor
+from src.editor import Editor
 
-st.title("INBiT: A TCX-File Editor")
+st.title("InBiT: A TCX-File Editor")
 st.write("Upload your TCX file and type a distance")
 
-uploaded_file = st.file_uploader("TCX file", type="xml")
+uploaded_file = st.file_uploader("TCX file", type="tcx")
 
 if uploaded_file is not None:
     try:
@@ -26,7 +26,7 @@ if uploaded_file is not None:
         st.download_button(
             label="Download edited TCX file",
             data=buffer.getvalue(),
-            file_name=f"{uploaded_file}_edit.xml",
+            file_name="inbit_edit.tcx",
             mime="application/xml"
         )
 
